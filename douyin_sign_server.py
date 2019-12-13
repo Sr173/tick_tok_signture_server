@@ -4,10 +4,12 @@ import os
 import threading
 
 data = {'result': 'this is a test'}
-host = ('localhost', 8888)
+host = ('0.0.0.0', 777)
 
 opt = webdriver.ChromeOptions()
-#opt.headless = True
+opt.add_argument('--no-sandbox')
+opt.headless = True
+opt.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 drive = webdriver.Chrome(options=opt)
 
 lock = threading.Lock()
